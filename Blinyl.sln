@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.WebMVC", "Blinyl.WebMVC\Blinyl.WebMVC.csproj", "{317625BA-F902-4275-B033-269F78CDB575}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.Data", "Blinyl.Data\Blinyl.Data.csproj", "{10CAE565-71C4-4190-9FFF-62D48D02B0B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.Models", "Blinyl.Models\Blinyl.Models.csproj", "{2B1DBB98-0AE5-4538-BA3A-9289C98E4070}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.Services", "Blinyl.Services\Blinyl.Services.csproj", "{F39F099E-948B-4656-A040-A2670B627278}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.Contracts", "Blinyl.Contracts\Blinyl.Contracts.csproj", "{B54209B6-6FBA-4EF8-A2D4-0D022770B9D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.Tests", "Blinyl.Tests\Blinyl.Tests.csproj", "{B72E2253-0C58-4FEE-A22E-5A8AAA0A5478}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{317625BA-F902-4275-B033-269F78CDB575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317625BA-F902-4275-B033-269F78CDB575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317625BA-F902-4275-B033-269F78CDB575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317625BA-F902-4275-B033-269F78CDB575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10CAE565-71C4-4190-9FFF-62D48D02B0B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10CAE565-71C4-4190-9FFF-62D48D02B0B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10CAE565-71C4-4190-9FFF-62D48D02B0B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10CAE565-71C4-4190-9FFF-62D48D02B0B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B1DBB98-0AE5-4538-BA3A-9289C98E4070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B1DBB98-0AE5-4538-BA3A-9289C98E4070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B1DBB98-0AE5-4538-BA3A-9289C98E4070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B1DBB98-0AE5-4538-BA3A-9289C98E4070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F39F099E-948B-4656-A040-A2670B627278}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F39F099E-948B-4656-A040-A2670B627278}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F39F099E-948B-4656-A040-A2670B627278}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F39F099E-948B-4656-A040-A2670B627278}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54209B6-6FBA-4EF8-A2D4-0D022770B9D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54209B6-6FBA-4EF8-A2D4-0D022770B9D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54209B6-6FBA-4EF8-A2D4-0D022770B9D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54209B6-6FBA-4EF8-A2D4-0D022770B9D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72E2253-0C58-4FEE-A22E-5A8AAA0A5478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72E2253-0C58-4FEE-A22E-5A8AAA0A5478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72E2253-0C58-4FEE-A22E-5A8AAA0A5478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72E2253-0C58-4FEE-A22E-5A8AAA0A5478}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EA120EC-5EAC-4EA7-B912-4D01B70F9D2A}
+	EndGlobalSection
+EndGlobal
