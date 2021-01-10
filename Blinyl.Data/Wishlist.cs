@@ -10,15 +10,13 @@ namespace Blinyl.Data
 {
     public class Wishlist
     {
-        [Key]
-        public int WishId { get; set; }
-        [ForeignKey("UserId")]
-        public int UserId { get; set; }
+        [Key] public int WishId { get; set; }
+        [ForeignKey("UserId")]        
+        public virtual string UserId { get; }
         [ForeignKey("ToyId")]
-        public int ToyId { get; set; }
-        [Required]
-        [MaxLength(45), MinLength(5)]
-        public string WishListTitle { get; set; }
+        public virtual int ToyId { get; set; }
+        public virtual ICollection<Toy> Toys { get; set; }
+        [Required][MaxLength(45), MinLength(5)] public string WishListTitle { get; set; }
         public DateTimeOffset CreateUtc { get; set; }
         public DateTimeOffset ModifiedUtc { get; set; }
     }
