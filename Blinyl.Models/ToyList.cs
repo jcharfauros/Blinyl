@@ -10,7 +10,7 @@ namespace Blinyl.Models
     public class ToyList
     {
         public int ToyId { get; set; }        
-        [Display(Name ="Date Added")]
+        public string Name { get; set; }        
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }

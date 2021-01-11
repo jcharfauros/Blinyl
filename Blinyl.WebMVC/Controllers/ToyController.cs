@@ -14,7 +14,24 @@ namespace Blinyl.WebMVC.Controllers
         public ActionResult Index()
         {
             var model = new ToyList[0];
+            return View(model);
+        }
+
+        // GET: Create Toy        
+        public ActionResult Create()
+        {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ToyCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
+
         }
     }
 }

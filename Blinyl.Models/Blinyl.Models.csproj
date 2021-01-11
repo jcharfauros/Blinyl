@@ -68,5 +68,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blinyl.Data\Blinyl.Data.csproj">
+      <Project>{10cae565-71c4-4190-9fff-62d48d02b0b4}</Project>
+      <Name>Blinyl.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
