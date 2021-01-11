@@ -16,11 +16,13 @@ namespace Blinyl.Data
         //public virtual ApplicationUser Collector { get; set; } ??
         public virtual string UserId { get; }
         [ForeignKey("ToyId")]         
-        public virtual int ToyId { get; set; }        
+        public virtual int ToyId { get; }        
         public virtual ICollection<Toy> Toys { get; set; }
-        [Required][MaxLength(45) , MinLength(5)] 
-        public string ListTitle { get; set; }
+        [Required]
+        public string Title { get; set; }
+        [Display(Name ="Created")]
         public DateTimeOffset CreateUtc { get; set; }
+        [Display(Name ="Modified")]
         public DateTimeOffset ModifiedUtc { get; set; } //what's the difference between DateTime vs DateTimeOffSet
 
     }

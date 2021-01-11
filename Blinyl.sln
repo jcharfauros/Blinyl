@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.Data", "Blinyl.Data\Blinyl.Data.csproj", "{10CAE565-71C4-4190-9FFF-62D48D02B0B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.Models", "Blinyl.Models\Blinyl.Models.csproj", "{2B1DBB98-0AE5-4538-BA3A-9289C98E4070}"
+	ProjectSection(ProjectDependencies) = postProject
+		{10CAE565-71C4-4190-9FFF-62D48D02B0B4} = {10CAE565-71C4-4190-9FFF-62D48D02B0B4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blinyl.Services", "Blinyl.Services\Blinyl.Services.csproj", "{F39F099E-948B-4656-A040-A2670B627278}"
 EndProject
