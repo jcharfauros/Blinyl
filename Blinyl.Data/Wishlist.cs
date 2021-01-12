@@ -10,7 +10,8 @@ namespace Blinyl.Data
 {
     public class Wishlist
     {
-        [Key] public int WishId { get; set; }
+        [Key] 
+        public int WishId { get; set; }
         [ForeignKey("UserId")]        
         public virtual string UserId { get; }
         [ForeignKey("ToyId")]

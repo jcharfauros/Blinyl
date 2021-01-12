@@ -10,7 +10,8 @@ namespace Blinyl.Data
 {
     public class ToyImage
     {
-        [Key] public int ImageId { get; set; }
+        [Key] 
+        public int ImageId { get; set; }
         [ForeignKey("ToyId")]
         public virtual Toy Toys { get; set; }
         public virtual int ToyId { get; set; }

@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToysService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Blinyl.Data\Blinyl.Data.csproj">
+      <Project>{10cae565-71c4-4190-9fff-62d48d02b0b4}</Project>
+      <Name>Blinyl.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blinyl.Models\Blinyl.Models.csproj">
+      <Project>{2b1dbb98-0ae5-4538-ba3a-9289c98e4070}</Project>
+      <Name>Blinyl.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

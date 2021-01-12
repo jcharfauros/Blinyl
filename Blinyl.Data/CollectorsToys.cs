@@ -16,8 +16,7 @@ namespace Blinyl.Data
         //public virtual ApplicationUser Collector { get; set; } ??
         public virtual string UserId { get; }
         [ForeignKey("ToyId")]         
-        public virtual int ToyId { get; }        
-        public virtual ICollection<Toy> Toys { get; set; }
+        public virtual int ToyId { get; }                
         [Required]
         public string Title { get; set; }
         [Display(Name ="Created")]
