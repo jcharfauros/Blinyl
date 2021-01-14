@@ -1,5 +1,6 @@
 ﻿using Blinyl.Data;
 using Blinyl.Models;
+using Blinyl.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -17,9 +18,14 @@ namespace Blinyl.WebMVC.Controllers
         // GET: Toy
         public ActionResult Index()
         {
-            List<Toy> toyList = _db.Toy.ToList();
-            List<Toy> seriesList = toyList.OrderBy(toy => toy.Series).ToList();
-            return View(toyList);
+            //var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ToysService();
+            var model = service.GetToys();
+
+            return View(model);
+
+            //var model = new ToyList[0];
+            //return View(model);
         }
 
         // GET: Toy        

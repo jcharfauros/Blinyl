@@ -28,7 +28,7 @@ namespace Blinyl.Data
         }
 
         public DbSet<CollectorsToys> CollectorsToys { get; set; }
-        public DbSet<Toy> Toy { get; set; }
+        public DbSet<Toy> Toy { get; set; }        
         public DbSet<ToyImage> ToyImage { get; set; }
         public DbSet<Wishlist> Wishlist { get; set; }
 

@@ -22,7 +22,7 @@ namespace Blinyl.Data
         [Display(Name ="Created")]
         public DateTimeOffset CreateUtc { get; set; }
         [Display(Name ="Modified")]
-        public DateTimeOffset ModifiedUtc { get; set; } //what's the difference between DateTime vs DateTimeOffSet
+        public DateTimeOffset? ModifiedUtc { get; set; } //what's the difference between DateTime vs DateTimeOffSet
 
     }
 }

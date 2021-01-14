@@ -11,7 +11,6 @@ namespace Blinyl.Models
     {
         [Required][MaxLength(50), MinLength(5)]
         [Display(Name ="Collection Title")]
-        public string Title { get; set; }
-        //public virtual ICollection<Toy> Toys { get; set; }
+        public string Title { get; set; }        
     }
 }

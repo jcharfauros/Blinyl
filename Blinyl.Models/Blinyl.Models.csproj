@@ -58,6 +58,7 @@
     <Compile Include="CollectorsToysDetail.cs" />
     <Compile Include="CollectorsToysEdit.cs" />
     <Compile Include="CollectorsToysList.cs" />
+    <Compile Include="ImageModel.cs" />
     <Compile Include="ToyCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToyDetail.cs" />

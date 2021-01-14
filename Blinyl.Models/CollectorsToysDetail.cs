@@ -15,7 +15,7 @@ namespace Blinyl.Models
         [Display(Name ="Collection Created on")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name ="Collection Modified on")]
-        public DateTimeOffset ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUtc { get; set; }
 
     }
 }

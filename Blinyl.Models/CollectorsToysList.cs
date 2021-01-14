@@ -14,8 +14,7 @@ namespace Blinyl.Models
         [MaxLength(45, ErrorMessage ="There are too many characters in this field"), 
             MinLength(5, ErrorMessage ="Please make the title at least 5 characters")]
         public string ListTitle { get; set; }
-
-        //How to add the toys in the colleciton
-        //public virtual ICollection<Toy> Toys { get; set; }
+        [Display(Name ="Created")]
+        public DateTimeOffset CreatedUtc { get; set; }
     }
 }
