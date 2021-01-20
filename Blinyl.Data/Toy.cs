@@ -23,6 +23,6 @@ namespace Blinyl.Data
         [Required] 
         public int ReleaseYear { get; set; }
         public decimal RetailPrice { get; set; }
-        public virtual Toy Toys { get; set; }
+        //public virtual Toy Toys { get; set; }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Blinyl.Models
 {
     public class ToyList
-    {
+    {        
         public int ToyId { get; set; }        
         public string Name { get; set; }
         public string Brand { get; set; }

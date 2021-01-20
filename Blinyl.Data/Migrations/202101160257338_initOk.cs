@@ -3,7 +3,7 @@ namespace Blinyl.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initOk : DbMigration
     {
         public override void Up()
         {
@@ -12,9 +12,9 @@ namespace Blinyl.Data.Migrations
                 c => new
                     {
                         CollectorsToysId = c.Int(nullable: false, identity: true),
-                        ListTitle = c.String(nullable: false, maxLength: 45),
+                        Title = c.String(nullable: false),
                         CreateUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.CollectorsToysId);
             
@@ -47,15 +47,21 @@ namespace Blinyl.Data.Migrations
                 c => new
                     {
                         ToyId = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false, maxLength: 50),
-                        Brand = c.String(nullable: false, maxLength: 50),
-                        Series = c.String(nullable: false, maxLength: 80),
-                        Artist = c.String(maxLength: 50),
+                        Name = c.String(nullable: false),
+                        Brand = c.String(nullable: false),
+                        Series = c.String(nullable: false),
+                        Artist = c.String(),
                         Description = c.String(nullable: false),
                         ReleaseYear = c.Int(nullable: false),
                         RetailPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Toys_ToyId = c.Int(),
+                        Wishlist_WishId = c.Int(),
                     })
-                .PrimaryKey(t => t.ToyId);
+                .PrimaryKey(t => t.ToyId)
+                .ForeignKey("dbo.Toy", t => t.Toys_ToyId)
+                .ForeignKey("dbo.Wishlist", t => t.Wishlist_WishId)
+                .Index(t => t.Toys_ToyId)
+                .Index(t => t.Wishlist_WishId);
             
             CreateTable(
                 "dbo.ToyImage",
@@ -129,12 +135,16 @@ namespace Blinyl.Data.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Toy", "Wishlist_WishId", "dbo.Wishlist");
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
+            DropForeignKey("dbo.Toy", "Toys_ToyId", "dbo.Toy");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.Toy", new[] { "Wishlist_WishId" });
+            DropIndex("dbo.Toy", new[] { "Toys_ToyId" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropTable("dbo.Wishlist");

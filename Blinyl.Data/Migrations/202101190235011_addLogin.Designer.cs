@@ -7,13 +7,13 @@ namespace Blinyl.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class dateTimeUpdate1 : IMigrationMetadata
+    public sealed partial class addLogin : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(dateTimeUpdate1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addLogin));
         
         string IMigrationMetadata.Id
         {
-            get { return "202101140102428_dateTimeUpdate1"; }
+            get { return "202101190235011_addLogin"; }
         }
         
         string IMigrationMetadata.Source

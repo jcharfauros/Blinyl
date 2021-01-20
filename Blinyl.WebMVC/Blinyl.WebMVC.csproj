@@ -170,7 +170,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CollectorsToysController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ToyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,6 +239,7 @@
     <Content Include="Views\Toy\Create.cshtml" />
     <Content Include="Views\Toy\Index.cshtml" />
     <Content Include="Views\CollectorsToys\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

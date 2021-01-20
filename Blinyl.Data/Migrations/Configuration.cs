@@ -10,7 +10,6 @@ namespace Blinyl.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Blinyl.Data.ApplicationDbContext";
         }
 
         protected override void Seed(Blinyl.Data.ApplicationDbContext context)

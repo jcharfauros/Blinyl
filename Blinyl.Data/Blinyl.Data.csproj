@@ -56,25 +56,13 @@
   <ItemGroup>
     <Compile Include="CollectorsToys.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202101102211015_InitialCreate.cs" />
-    <Compile Include="Migrations\202101102211015_InitialCreate.Designer.cs">
-      <DependentUpon>202101102211015_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202101160257338_initOk.cs" />
+    <Compile Include="Migrations\202101160257338_initOk.Designer.cs">
+      <DependentUpon>202101160257338_initOk.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101110114021_initCreate.cs" />
-    <Compile Include="Migrations\202101110114021_initCreate.Designer.cs">
-      <DependentUpon>202101110114021_initCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101120411454_toyControllerCreate.cs" />
-    <Compile Include="Migrations\202101120411454_toyControllerCreate.Designer.cs">
-      <DependentUpon>202101120411454_toyControllerCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101140058577_dateTimeUpdate.cs" />
-    <Compile Include="Migrations\202101140058577_dateTimeUpdate.Designer.cs">
-      <DependentUpon>202101140058577_dateTimeUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101140102428_dateTimeUpdate1.cs" />
-    <Compile Include="Migrations\202101140102428_dateTimeUpdate1.Designer.cs">
-      <DependentUpon>202101140102428_dateTimeUpdate1.cs</DependentUpon>
+    <Compile Include="Migrations\202101190235011_addLogin.cs" />
+    <Compile Include="Migrations\202101190235011_addLogin.Designer.cs">
+      <DependentUpon>202101190235011_addLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,20 +75,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101102211015_InitialCreate.resx">
-      <DependentUpon>202101102211015_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101160257338_initOk.resx">
+      <DependentUpon>202101160257338_initOk.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101110114021_initCreate.resx">
-      <DependentUpon>202101110114021_initCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101120411454_toyControllerCreate.resx">
-      <DependentUpon>202101120411454_toyControllerCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101140058577_dateTimeUpdate.resx">
-      <DependentUpon>202101140058577_dateTimeUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101140102428_dateTimeUpdate1.resx">
-      <DependentUpon>202101140102428_dateTimeUpdate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101190235011_addLogin.resx">
+      <DependentUpon>202101190235011_addLogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
