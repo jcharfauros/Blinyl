@@ -102,18 +102,32 @@ namespace Blinyl.WebMVC.Controllers
 
         // details
         // GET: Toy/Detail/{id}
-        public ActionResult Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Toy toy = _db.Toy.Find(id);
-            if (toy == null)
-            {
-                return HttpNotFound();
-            }
-            return View(toy);
+            var svc = CreatedToysService();
+            var model = svc.GetToyById(id);
+
+            return View(model);
         }
+
+
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Toy toy = _db.Toy.Find(id);
+        //    if (toy == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(toy);
+        //}
+        private ToysService CreatedToysService()
+        {
+            var service = new ToysService();
+            return service;
+        }       
     }
 }

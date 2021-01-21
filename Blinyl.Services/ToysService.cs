@@ -50,5 +50,27 @@ namespace Blinyl.Services
                 return query.ToArray();
             }
         }
+
+        public ToyDetail GetToyById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Toy
+                        .Single(e => e.ToyId == id);
+                return
+                    new ToyDetail
+                    {
+                        ToyId = entity.ToyId,
+                        Name = entity.Name,
+                        Brand = entity.Brand,
+                        Series = entity.Series,
+                        Description = entity.Description,
+                        ReleaseYear = entity.ReleaseYear,
+                        RetailPrice = entity.RetailPrice
+                    };
+            }
+        }
     }
 }
