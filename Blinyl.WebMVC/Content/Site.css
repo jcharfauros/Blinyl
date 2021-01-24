@@ -8,20 +8,12 @@
     background-attachment: fixed;
 }
 
-.juliabg {
-    
-}
-
-/* Julia note: trying to change the bg color*/
-.bg-color-pink {
-    
-}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px; 
-    background-color: white;
+    background-color: floralwhite;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -37,3 +29,63 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*Bootstrap overrides*/
+/*change navbar color*/
+.navbar-inverse {
+    background-color: #ed88ff;
+    border-color: #ed88ff;
+}
+/*change navbar link color*/
+.navbar-inverse .navbar-nav > li > a {
+    color: azure;
+}
+/*change navbar BLINYL color*/
+.navbar-inverse .navbar-brand {
+    color: #686AD7
+}
+
+/*Learn more btn*/
+.btn-primary {
+    color: #fff;
+    background-color: #686AD7;
+    border-color: #f76aff;
+}
+
+.btn-default {
+    color: #fff;
+    background-color: #686AD7;
+    border-color: #f76aff;
+}
+
+/*links e.g., Create New*/
+a:hover,
+a:focus {
+    color: #BCFF6A;    
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #fbdcec;
+}
+
+h1 {
+    font-family: Fredoka One, cursive;    
+}
+
+/*
+body.
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6*/
