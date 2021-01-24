@@ -68,6 +68,14 @@
     <Compile Include="Migrations\202101210124076_FileUploadAdded.Designer.cs">
       <DependentUpon>202101210124076_FileUploadAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101232347250_wishlistDataTable.cs" />
+    <Compile Include="Migrations\202101232347250_wishlistDataTable.Designer.cs">
+      <DependentUpon>202101232347250_wishlistDataTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101232352167_collectorsToysData.cs" />
+    <Compile Include="Migrations\202101232352167_collectorsToysData.Designer.cs">
+      <DependentUpon>202101232352167_collectorsToysData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Toy.cs" />
@@ -87,6 +95,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101210124076_FileUploadAdded.resx">
       <DependentUpon>202101210124076_FileUploadAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101232347250_wishlistDataTable.resx">
+      <DependentUpon>202101232347250_wishlistDataTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101232352167_collectorsToysData.resx">
+      <DependentUpon>202101232352167_collectorsToysData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

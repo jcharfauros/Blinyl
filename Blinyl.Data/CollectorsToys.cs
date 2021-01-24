@@ -11,12 +11,12 @@ namespace Blinyl.Data
     public class CollectorsToys
     {
         [Key] 
-        public int CollectorsToysId { get; set; }        
-        [ForeignKey("UserId")] 
-        //public virtual ApplicationUser Collector { get; set; } ??
-        public virtual string UserId { get; }
-        [ForeignKey("ToyId")]         
-        public virtual int ToyId { get; }                
+        public int CollectorsToysId { get; set; }
+        [ForeignKey("UserId")]
+        public ApplicationUser User { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey(nameof(ToyId))]         
+        public virtual int? ToyId { get; }                
         [Required]
         public string Title { get; set; }
         [Display(Name ="Created")]

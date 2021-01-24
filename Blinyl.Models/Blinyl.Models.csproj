@@ -65,6 +65,7 @@
     <Compile Include="ToyDetail.cs" />
     <Compile Include="ToyEdit.cs" />
     <Compile Include="ToyList.cs" />
+    <Compile Include="WishListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
