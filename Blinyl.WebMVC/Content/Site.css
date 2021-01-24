@@ -29,6 +29,16 @@ select,
 textarea {
     max-width: 280px;
 }
+/*this is for all images*/
+img {
+    max-width: 20%;
+    height: auto;
+}
+
+.blinyl-flag {
+    max-width: 40%;
+    height: auto;
+}
 
 /*Bootstrap overrides*/
 /*change navbar color*/
