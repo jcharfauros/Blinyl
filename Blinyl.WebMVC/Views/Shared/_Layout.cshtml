@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - BLINYL Application</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&family=Fredoka+One&family=Montserrat+Alternates&family=Press+Start+2P&family=Sacramento&family=Varela+Round&display=swap" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -24,12 +24,13 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li>@Html.ActionLink("Blind Boxes", "Index", "Toy")</li>
+                            <li>@Html.ActionLink("Image upload", "Index", "FileUpload")</li>
                         }
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>
@@ -39,7 +40,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year - BLINYL Application</p>
+                <p>&copy; @DateTime.Now.Year - BLINYL Collection Application</p>
             </footer>
         </div>        
 

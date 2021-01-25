@@ -6,14 +6,16 @@
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
+    color: floralwhite;
 }
 
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
-    padding-right: 15px; 
-    background-color: floralwhite;
+    padding-right: 15px;
+    background-color: black;    
+    border-radius: 0px 0px 25px 25px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -29,21 +31,42 @@ select,
 textarea {
     max-width: 280px;
 }
+
 /*this is for all images*/
 img {
-    max-width: 20%;
+    max-width: 40%;
     height: auto;
+}
+/* not currently using*/
+.center-img {
+    margin: auto;
+    width: 70%;
+    padding: 10px;
 }
 
 .blinyl-flag {
-    max-width: 40%;
+    max-width: 50%;
     height: auto;
+}
+/* contact page*/
+address {
+    margin-bottom: 20px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    color: ghostwhite;
+    line-height: 1.42857143;
+}
+
+a {
+    color: mediumpurple;
 }
 
 /*Bootstrap overrides*/
 /*change navbar color*/
 .navbar-inverse {
     background-color: #ed88ff;
+    /*background-color: ;*/
     border-color: #ed88ff;
 }
 /*change navbar link color*/
@@ -52,7 +75,7 @@ img {
 }
 /*change navbar BLINYL color*/
 .navbar-inverse .navbar-brand {
-    color: #686AD7
+    color: #686AD7;
 }
 
 /*Learn more btn*/
@@ -82,8 +105,60 @@ a:focus {
     background-color: #fbdcec;
 }
 
-h1 {
-    font-family: Fredoka One, cursive;    
+.jumbotron h1 {
+    text-align: center;
+    font-size: 70px;
+    color: #000;
+}
+
+p {
+    color: antiquewhite;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.5em;
+}
+/*register form text*/
+label {
+    color: floralwhite;
+}
+
+.center {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+
+/*font-family: 'Dawning of a New Day', cursive;
+font-family: 'Fredoka One', cursive;
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Sacramento', cursive;
+font-family: 'Varela Round', sans-serif;*/
+
+h1 {    
+    font-family: 'Fredoka One', cursive;
+}
+
+h2 {
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+h3 {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+}
+
+h4 {
+    font-family: 'Sacramento', cursive;
+    font-size: 8em;
+    color: #686AD7;
+}
+
+h5 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 70px;
+    text-align: center;
+    color: white;
 }
 
 /*

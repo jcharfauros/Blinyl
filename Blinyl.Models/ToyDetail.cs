@@ -14,6 +14,7 @@ namespace Blinyl.Models
         public string Name { get; set; }
         public string Brand { get; set; }
         public string Series { get; set; }
+        public string Artist { get; set; }
         public string Description { get; set; }
         [Display(Name=("Year Toy was released"))]
         public int ReleaseYear { get; set; }

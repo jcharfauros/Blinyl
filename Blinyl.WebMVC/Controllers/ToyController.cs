@@ -71,35 +71,6 @@ namespace Blinyl.WebMVC.Controllers
             return RedirectToAction("Index");
         }
         
-        // update
-        // GET: Toy/Edit/{id}
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Toy toy = _db.Toy.Find(id);
-            if (toy == null)
-            {
-                return HttpNotFound();
-            }
-            return View(toy);
-        }
-        // POST: Toy/Edit/{id}
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(Toy toy)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Entry(toy).State = EntityState.Modified;
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(toy);
-        }
-
         // details
         // GET: Toy/Detail/{id}
         public ActionResult Details(int id)
@@ -109,8 +80,6 @@ namespace Blinyl.WebMVC.Controllers
 
             return View(model);
         }
-
-
         //public ActionResult Details(int? id)
         //{
         //    if (id == null)
@@ -124,6 +93,65 @@ namespace Blinyl.WebMVC.Controllers
         //    }
         //    return View(toy);
         //}
+
+        // update
+        // GET: Toy/Edit/{id}
+        public ActionResult Edit(int id)
+        {
+            var service = CreatedToysService();
+            var detail = service.GetToyById(id);
+            var model =
+                new ToyEdit
+                {
+                    ToyId = detail.ToyId,
+                    Name = detail.Name,
+                    Brand = detail.Brand,
+                    Series = detail.Series,
+                    Artist = detail.Artist,
+                    Description = detail.Description,
+                    ReleaseYear = detail.ReleaseYear,
+                    RetailPrice = detail.RetailPrice
+                };
+            return View(model);
+        }
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Toy toy = _db.Toy.Find(id);
+        //    if (toy == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(toy);
+        //}
+        // POST: Toy/Edit/{id}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ToyEdit model)
+        {
+            if (ModelState.IsValid) return View(model);
+
+            if(model.ToyId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreatedToysService();
+
+            if (service.UpdateToy(model))
+            {
+                TempData["SaveResult"] = "Your note was upated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "This blindbox/toy could not be updated.");
+            return View();
+        }
+
         private ToysService CreatedToysService()
         {
             var service = new ToysService();

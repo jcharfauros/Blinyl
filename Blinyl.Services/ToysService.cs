@@ -72,5 +72,25 @@ namespace Blinyl.Services
                     };
             }
         }
+        public bool UpdateToy(ToyEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Toy
+                        .Single(e => e.ToyId == model.ToyId);
+
+                entity.Name = model.Name;
+                entity.Brand = model.Brand;
+                entity.Series = model.Series;
+                entity.Artist = model.Artist;
+                entity.Description = model.Description;
+                entity.ReleaseYear = model.ReleaseYear;
+                entity.RetailPrice = model.RetailPrice;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
