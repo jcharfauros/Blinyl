@@ -1,18 +1,29 @@
 ﻿@model Blinyl.Models.ToyCreate
 
+<div class="text-center">
 @{
     ViewBag.Title = "Create";
 }
-
-<h2>Create</h2>
-
-
+<h2>Add a blind box.</h2>
+</div>
+<br />
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>ToyCreate</h4>
+    <div class="form-horizontal">        
+        <img src="~/Content/Images1/BlinylBoy.png" class="add-img" ALIGN="right"/>        
+        <h5 style="color: #ed88ff;">Be a our hero</h5>
+        <h5>and help us build the Blinyl database!</h5>
+        <p>Hello Blinyl user! If you are making your collection and you discover our database
+            is missing a blind box toy, please feel free to add it. It's the collectors like you 
+            that will help this community grow!</p>
+        <br />
+        <p><b>Things to note while filling out the form:</b> The name, brand, series, description and release year are required
+            to make sure that we do not have duplicates.</p>
+        <br />
+        
+        <h5 style="color: #BCFF6A;">Blinyl add form</h5>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

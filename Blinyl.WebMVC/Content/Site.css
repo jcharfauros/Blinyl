@@ -38,10 +38,11 @@ img {
     height: auto;
 }
 /* not currently using*/
-.center-img {
+.add-img {
+    width: 25%;
     margin: auto;
-    width: 70%;
-    padding: 10px;
+    /*
+    padding: 10px;*/
 }
 
 .blinyl-flag {
@@ -102,7 +103,7 @@ a:focus {
     padding-bottom: 30px;
     margin-bottom: 30px;
     color: inherit;
-    background-color: #fbdcec;
+    background-color: #ffe6f3;
 }
 
 .jumbotron h1 {

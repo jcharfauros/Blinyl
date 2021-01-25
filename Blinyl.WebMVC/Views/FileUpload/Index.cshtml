@@ -1,9 +1,11 @@
 ﻿@model Blinyl.Models.FileUploadModel
-
+<div class="text-center">
 @{
     ViewBag.Title = "Upload Image";
 }
-
+<h2>Upload Blinyl image.</h2>
+    <img src="~/Content/Images1/BlinylBx.png" />
+</div>
 @using (Html.BeginForm("UploadFiles", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()

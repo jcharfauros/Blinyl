@@ -80,20 +80,7 @@ namespace Blinyl.WebMVC.Controllers
 
             return View(model);
         }
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Toy toy = _db.Toy.Find(id);
-        //    if (toy == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(toy);
-        //}
-
+        
         // update
         // GET: Toy/Edit/{id}
         public ActionResult Edit(int id)
@@ -114,19 +101,7 @@ namespace Blinyl.WebMVC.Controllers
                 };
             return View(model);
         }
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Toy toy = _db.Toy.Find(id);
-        //    if (toy == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(toy);
-        //}
+        
         // POST: Toy/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
