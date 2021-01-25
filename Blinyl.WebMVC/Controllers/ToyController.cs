@@ -44,32 +44,7 @@ namespace Blinyl.WebMVC.Controllers
                 return RedirectToAction("Index");
             }
             return View(toy);
-        }
-        // delete
-        // GET: Toy/Delete/{id}
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Toy toy = _db.Toy.Find(id);
-            if (toy == null)
-            {
-                return HttpNotFound();
-            }
-            return View(toy);
-        }
-        // POST: Toy/Delete/{id}
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
-        {
-            Toy toy = _db.Toy.Find(id);
-            _db.Toy.Remove(toy);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        }       
         
         // details
         // GET: Toy/Detail/{id}
@@ -125,6 +100,29 @@ namespace Blinyl.WebMVC.Controllers
 
             ModelState.AddModelError("", "This blindbox/toy could not be updated.");
             return View();
+        }
+        // delete
+        // GET: Toy/Delete/{id}
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreatedToysService();
+            var model = svc.GetToyById(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteToy(int id)
+        {
+            var service = CreatedToysService();
+
+            service.DeleteToy(id);
+
+            TempData["SaveResult"] = "The selected Blinyl was deleted.";
+
+            return RedirectToAction("Index");
         }
 
         private ToysService CreatedToysService()

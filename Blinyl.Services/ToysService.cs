@@ -92,5 +92,20 @@ namespace Blinyl.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public bool DeleteToy(int toyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Toy
+                        .Single(e => e.ToyId == toyId);
+
+                ctx.Toy.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+
+            }
+        }
     }
 }
