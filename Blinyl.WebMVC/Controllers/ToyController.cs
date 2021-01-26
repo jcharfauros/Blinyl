@@ -1,6 +1,7 @@
 ﻿using Blinyl.Data;
 using Blinyl.Models;
 using Blinyl.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,18 +15,15 @@ namespace Blinyl.WebMVC.Controllers
     [Authorize]
     public class ToyController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: Toy
         public ActionResult Index()
         {
-            //var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ToysService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ToysService(userId);
+            //var service = new ToysService();
             var model = service.GetToys();
 
             return View(model);
-
-            //var model = new ToyList[0];
-            //return View(model);
         }
 
         // GET: Toy        
@@ -34,17 +32,24 @@ namespace Blinyl.WebMVC.Controllers
             return View();
         }
         // POST: Toy
-        [HttpPost]        
-        public ActionResult Create(Toy toy)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ToyCreate model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) return View(model);
+
+            var service = CreatedToysService();
+
+            if (service.CreateToy(model))
             {
-                _db.Toy.Add(toy);
-                _db.SaveChanges();
+                TempData["SaveResult"] = "Your BLINYL was added.";
                 return RedirectToAction("Index");
-            }
-            return View(toy);
-        }       
+            };
+
+            ModelState.AddModelError("", "BLINYL could not be added.");
+
+            return View(model);                                        
+        }
         
         // details
         // GET: Toy/Detail/{id}
@@ -127,7 +132,9 @@ namespace Blinyl.WebMVC.Controllers
 
         private ToysService CreatedToysService()
         {
-            var service = new ToysService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ToysService(userId);
+            //var service = new ToysService();
             return service;
         }       
     }

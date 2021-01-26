@@ -56,29 +56,17 @@
   <ItemGroup>
     <Compile Include="CollectorsToys.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202101160257338_initOk.cs" />
-    <Compile Include="Migrations\202101160257338_initOk.Designer.cs">
-      <DependentUpon>202101160257338_initOk.cs</DependentUpon>
+    <Compile Include="Migrations\202101260407487_initCreate.cs" />
+    <Compile Include="Migrations\202101260407487_initCreate.Designer.cs">
+      <DependentUpon>202101260407487_initCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101190235011_addLogin.cs" />
-    <Compile Include="Migrations\202101190235011_addLogin.Designer.cs">
-      <DependentUpon>202101190235011_addLogin.cs</DependentUpon>
+    <Compile Include="Migrations\202101260447469_wishlistData.cs" />
+    <Compile Include="Migrations\202101260447469_wishlistData.Designer.cs">
+      <DependentUpon>202101260447469_wishlistData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101210124076_FileUploadAdded.cs" />
-    <Compile Include="Migrations\202101210124076_FileUploadAdded.Designer.cs">
-      <DependentUpon>202101210124076_FileUploadAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101232347250_wishlistDataTable.cs" />
-    <Compile Include="Migrations\202101232347250_wishlistDataTable.Designer.cs">
-      <DependentUpon>202101232347250_wishlistDataTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101232352167_collectorsToysData.cs" />
-    <Compile Include="Migrations\202101232352167_collectorsToysData.Designer.cs">
-      <DependentUpon>202101232352167_collectorsToysData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101240541236_testComplete.cs" />
-    <Compile Include="Migrations\202101240541236_testComplete.Designer.cs">
-      <DependentUpon>202101240541236_testComplete.cs</DependentUpon>
+    <Compile Include="Migrations\202101260512314_addOwnerId.cs" />
+    <Compile Include="Migrations\202101260512314_addOwnerId.Designer.cs">
+      <DependentUpon>202101260512314_addOwnerId.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,23 +79,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101160257338_initOk.resx">
-      <DependentUpon>202101160257338_initOk.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101260407487_initCreate.resx">
+      <DependentUpon>202101260407487_initCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101190235011_addLogin.resx">
-      <DependentUpon>202101190235011_addLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101260447469_wishlistData.resx">
+      <DependentUpon>202101260447469_wishlistData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101210124076_FileUploadAdded.resx">
-      <DependentUpon>202101210124076_FileUploadAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101232347250_wishlistDataTable.resx">
-      <DependentUpon>202101232347250_wishlistDataTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101232352167_collectorsToysData.resx">
-      <DependentUpon>202101232352167_collectorsToysData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101240541236_testComplete.resx">
-      <DependentUpon>202101240541236_testComplete.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101260512314_addOwnerId.resx">
+      <DependentUpon>202101260512314_addOwnerId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

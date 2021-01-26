@@ -27,8 +27,13 @@ namespace Blinyl.Data
         {
         }
 
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
+        }
+
         public DbSet<CollectorsToys> CollectorsToys { get; set; }
-        public DbSet<Toy> Toy { get; set; }        
+        public DbSet<Toy> Toys { get; set; }        
         public DbSet<ToyImage> ToyImage { get; set; }
         public DbSet<Wishlist> Wishlist { get; set; }
 
@@ -42,12 +47,7 @@ namespace Blinyl.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
-        }
-
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
+        }               
 
         private class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {

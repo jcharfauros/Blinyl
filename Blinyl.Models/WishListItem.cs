@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blinyl.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -18,6 +19,6 @@ namespace Blinyl.Models
         public DateTimeOffset CreatedUtc { get; set; }
         [Display(Name = "Modified on")]
         public DateTimeOffset ModifiedUtc { get; set; }
-        //public WishList WishLists { get; set; }
+        public virtual ICollection<Toy> Toys { get; set; }
     }
 }

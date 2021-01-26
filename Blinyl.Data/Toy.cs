@@ -11,6 +11,8 @@ namespace Blinyl.Data
     {
         [Key] 
         public int ToyId { get; set; }
+        [Required]
+        public Guid OwnerId { get; set; }
         [Required] 
         public string Name { get; set; }
         [Required] 
@@ -23,6 +25,6 @@ namespace Blinyl.Data
         [Required] 
         public int ReleaseYear { get; set; }
         public decimal RetailPrice { get; set; }
-        //public virtual Toy Toys { get; set; }
+        public virtual ICollection<Wishlist> Wishlists { get; set; }
     }
 }

@@ -4,12 +4,24 @@
     ViewBag.Title = "Index";
 }
 <div class="text-center">
-<h2>Index of BLINYLs</h2>
+    <h2>Index of BLINYLs</h2>
 </div>
 <p>This is the current list of toys in the BLINYL database. You may add to this database if something is missing.</p>
 <p>
     @Html.ActionLink("Add a Blind box or Toy", "Create")
 </p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -20,27 +32,28 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Brand)
-        </th>        
+        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ToyId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Brand)
-    </td>    
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id=item.ToyId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ToyId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ToyId })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToyId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ToyId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ToyId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ToyId })
+            </td>
+        </tr>
+    }
 
 </table>

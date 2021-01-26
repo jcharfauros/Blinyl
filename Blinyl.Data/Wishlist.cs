@@ -10,21 +10,18 @@ namespace Blinyl.Data
 {
     public class Wishlist
     {
-        public Wishlist()
-        {
-            ToyItem = new HashSet<Toy>();
-            //Collector = new HashSet<ApplicationUser>();
-        }
+        //public Wishlist()
+        //{
+        //    Toys = new HashSet<Toy>();            
+        //}
         [Key] 
-        public int WishId { get; set; }                       
-        [ForeignKey(nameof(ToyId))]
-        public virtual int? ToyId { get; }        
-        public virtual ICollection<Toy> ToyItem { get; set; }
+        public int WishId { get; set; }        
         [ForeignKey("UserId")]        
         public ApplicationUser User { get; set; }
         public string UserId { get; set; }        
         public string WishListTitle { get; set; }        
         public DateTimeOffset CreateUtc { get; set; }        
         public DateTimeOffset ModifiedUtc { get; set; }
+        public virtual ICollection<Toy> Toys { get; set; }
     }
 }
