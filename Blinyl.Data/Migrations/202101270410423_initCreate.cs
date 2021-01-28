@@ -92,24 +92,6 @@ namespace Blinyl.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Toy",
-                c => new
-                    {
-                        ToyId = c.Int(nullable: false, identity: true),
-                        Name = c.String(nullable: false),
-                        Brand = c.String(nullable: false),
-                        Series = c.String(nullable: false),
-                        Artist = c.String(),
-                        Description = c.String(nullable: false),
-                        ReleaseYear = c.Int(nullable: false),
-                        RetailPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Wishlist_WishId = c.Int(),
-                    })
-                .PrimaryKey(t => t.ToyId)
-                .ForeignKey("dbo.Wishlist", t => t.Wishlist_WishId)
-                .Index(t => t.Wishlist_WishId);
-            
-            CreateTable(
                 "dbo.ToyImage",
                 c => new
                     {
@@ -119,6 +101,22 @@ namespace Blinyl.Data.Migrations
                         Image = c.Byte(nullable: false),
                     })
                 .PrimaryKey(t => t.ImageId);
+            
+            CreateTable(
+                "dbo.Toy",
+                c => new
+                    {
+                        ToyId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        Name = c.String(nullable: false),
+                        Brand = c.String(nullable: false),
+                        Series = c.String(nullable: false),
+                        Artist = c.String(),
+                        Description = c.String(nullable: false),
+                        ReleaseYear = c.Int(nullable: false),
+                        RetailPrice = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    })
+                .PrimaryKey(t => t.ToyId);
             
             CreateTable(
                 "dbo.Wishlist",
@@ -134,27 +132,43 @@ namespace Blinyl.Data.Migrations
                 .ForeignKey("dbo.ApplicationUser", t => t.UserId)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.WishlistToy",
+                c => new
+                    {
+                        Wishlist_WishId = c.Int(nullable: false),
+                        Toy_ToyId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Wishlist_WishId, t.Toy_ToyId })
+                .ForeignKey("dbo.Wishlist", t => t.Wishlist_WishId, cascadeDelete: true)
+                .ForeignKey("dbo.Toy", t => t.Toy_ToyId, cascadeDelete: true)
+                .Index(t => t.Wishlist_WishId)
+                .Index(t => t.Toy_ToyId);
+            
         }
         
         public override void Down()
         {
             DropForeignKey("dbo.Wishlist", "UserId", "dbo.ApplicationUser");
-            DropForeignKey("dbo.Toy", "Wishlist_WishId", "dbo.Wishlist");
+            DropForeignKey("dbo.WishlistToy", "Toy_ToyId", "dbo.Toy");
+            DropForeignKey("dbo.WishlistToy", "Wishlist_WishId", "dbo.Wishlist");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.CollectorsToys", "UserId", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
+            DropIndex("dbo.WishlistToy", new[] { "Toy_ToyId" });
+            DropIndex("dbo.WishlistToy", new[] { "Wishlist_WishId" });
             DropIndex("dbo.Wishlist", new[] { "UserId" });
-            DropIndex("dbo.Toy", new[] { "Wishlist_WishId" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.CollectorsToys", new[] { "UserId" });
+            DropTable("dbo.WishlistToy");
             DropTable("dbo.Wishlist");
-            DropTable("dbo.ToyImage");
             DropTable("dbo.Toy");
+            DropTable("dbo.ToyImage");
             DropTable("dbo.IdentityRole");
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityUserLogin");

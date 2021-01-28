@@ -255,6 +255,7 @@
     <Content Include="Views\Toy\Details.cshtml" />
     <Content Include="Views\Toy\Edit.cshtml" />
     <Content Include="Views\Toy\Delete.cshtml" />
+    <Content Include="Views\WishList\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

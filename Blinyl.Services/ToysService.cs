@@ -52,6 +52,7 @@ namespace Blinyl.Services
                                     ToyId = e.ToyId,
                                     Name = e.Name,
                                     Brand = e.Brand,
+                                    
                                 }
                          );
                 return query.ToArray();

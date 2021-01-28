@@ -36,7 +36,7 @@ namespace Blinyl.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ToyCreate model)
         {
-            if (ModelState.IsValid) return View(model);
+            if (!ModelState.IsValid) return View(model);
 
             var service = CreatedToysService();
 

@@ -13,7 +13,7 @@ namespace Blinyl.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202101260407487_initCreate"; }
+            get { return "202101270410423_initCreate"; }
         }
         
         string IMigrationMetadata.Source

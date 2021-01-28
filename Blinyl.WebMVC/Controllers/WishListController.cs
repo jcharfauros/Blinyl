@@ -1,4 +1,7 @@
 ﻿using Blinyl.Data;
+using Blinyl.Models;
+using Blinyl.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,32 +12,60 @@ namespace Blinyl.WebMVC.Controllers
 {
     public class WishListController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
-        // GET: WishList
+        //GET: WishList
         public ActionResult Index()
-        {
-            List<Wishlist> toyList = _db.Wishlist.ToList();
-            List<Wishlist> wishlist = toyList.OrderBy(item => item.WishListTitle).ToList();
-            return View(wishlist);
-    }
-
-        // GET: Wishlist
-        public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Wishlist
-        [HttpPost]
-        public ActionResult Create(Wishlist wishlist)
+        // CREATE
+        public ActionResult Create()
         {
-            if (ModelState.IsValid)
-            {
-                _db.Wishlist.Add(wishlist);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(wishlist);
+            var service = CreateWishlistService();
+            var toysList = service.GetToysForMultiSelect();
+            ViewBag.Toys = new MultiSelectList(toysList, "Value", "Text");
+
+            return View();
         }
+        // POST : Wishlist
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(WishListCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreateWishlistService();
+            var toysList= service.GetToysForMultiSelect();
+            ViewBag.Toys = new MultiSelectList(toysList, "Value", "Text");
+
+            if (service.CreateWishlist(model))
+            {
+                TempData["SaveResult"] = "xxxx";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "xxxx");
+
+            return View(model);
+        }
+
+        // GET: Wishlist/{id}
+        //public ActionResult Details(int id)
+        //{
+
+        //}
+
+        // READ
+        // UPDATE/EDIT
+        // DELETE
+
+        private WishlistService CreateWishlistService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new WishlistService(userId);
+
+            return service;
+        }
+
     }
 }

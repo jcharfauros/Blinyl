@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Blinyl.Data
 {
@@ -25,6 +26,5 @@ namespace Blinyl.Data
         [Required] 
         public int ReleaseYear { get; set; }
         public decimal RetailPrice { get; set; }
-        public virtual ICollection<Wishlist> Wishlists { get; set; }
     }
 }
