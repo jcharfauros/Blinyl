@@ -48,24 +48,69 @@ namespace Blinyl.Services
             }
         }
 
-        //public IEnumerable<WishListItem> Getwishlist()
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //                .Wishlist
-        //                .Where(e => e.OwnerId == _userId)
-        //                .Select(
-        //                    e =>
-        //                        new Wishlist
-        //                        {
-        //                            WishId = e.WishId,
-        //                            WishListTitle = e.WishListTitle
-        //                        }
-        //                    );
-        //        return query.ToArray();
-        //    }
-        //}
+        public IEnumerable<WishListItem> Getwishlist()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var wishlists =
+                    ctx
+                        .Wishlist
+                        .Select(w => new WishListItem()
+                        {
+                            WishId = w.WishId,
+                            WishListTitle = w.WishListTitle
+
+                        });
+
+                return wishlists.ToList();
+            }
+        }
+
+        public WishListDetail GetWishlistById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = 
+                    ctx
+                        .Wishlist
+                        .Single(w => w.WishId == id && w.OwnerId == _userId);
+                return
+                    new WishListDetail
+                    {
+                        WishId = entity.WishId,
+                        WishListTitle = entity.WishListTitle
+                    };
+            }
+        }
+
+        public bool UpdateWishlist(WishListEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Wishlist
+                        .Single(w => w.WishId == model.WishId && w.OwnerId == _userId);
+
+                entity.WishListTitle = model.WishListTitle;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        
+        public bool DeleteWishlist(int wishId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Wishlist
+                        .Single(w => w.WishId == wishId && w.OwnerId == _userId);
+
+                ctx.Wishlist.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

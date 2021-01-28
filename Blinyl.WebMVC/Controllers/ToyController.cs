@@ -86,8 +86,8 @@ namespace Blinyl.WebMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ToyEdit model)
-        {
-            if (ModelState.IsValid) return View(model);
+        {      //!did adding this break anything 1/27/21 -julia
+            if (!ModelState.IsValid) return View(model);
 
             if(model.ToyId != id)
             {
@@ -99,7 +99,7 @@ namespace Blinyl.WebMVC.Controllers
 
             if (service.UpdateToy(model))
             {
-                TempData["SaveResult"] = "Your note was upated.";
+                TempData["SaveResult"] = "This BLINYL was updated.";
                 return RedirectToAction("Index");
             }
 

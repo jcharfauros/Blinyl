@@ -18,9 +18,6 @@ namespace Blinyl.Data
         public string WishListTitle { get; set; }        
         public DateTimeOffset CreateUtc { get; set; }        
         public DateTimeOffset ModifiedUtc { get; set; }
-        public virtual IEnumerable<SelectListItem> Toys { get; set; }
-        //[ForeignKey("UserId")]        
-        //public ApplicationUser User { get; set; }
-        //public string UserId { get; set; }        
+        public virtual IEnumerable<SelectListItem> Toys { get; set; }        
     }
 }
