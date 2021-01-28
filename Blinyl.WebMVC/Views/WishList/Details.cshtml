@@ -1,0 +1,50 @@
+﻿@model Blinyl.Models.WishListDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WishListDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WishId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WishId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WishListTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WishListTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WishId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

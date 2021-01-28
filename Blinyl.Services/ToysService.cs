@@ -10,11 +10,17 @@ namespace Blinyl.Services
 {
     public class ToysService
     {
+        private readonly Guid _userId;
+        public ToysService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateToy(ToyCreate model)
         {
             var entity =
                 new Toy()
                 {
+                    OwnerId = _userId,
                     Name = model.Name,
                     Brand = model.Brand,
                     Series = model.Series,
@@ -26,7 +32,7 @@ namespace Blinyl.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Toy.Add(entity);
+                ctx.Toys.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -37,7 +43,8 @@ namespace Blinyl.Services
             {
                 var query =
                     ctx
-                        .Toy
+                        .Toys
+                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e => 
                                 new ToyList
@@ -45,6 +52,7 @@ namespace Blinyl.Services
                                     ToyId = e.ToyId,
                                     Name = e.Name,
                                     Brand = e.Brand,
+                                    
                                 }
                          );
                 return query.ToArray();
@@ -57,8 +65,9 @@ namespace Blinyl.Services
             {
                 var entity =
                     ctx
-                        .Toy
-                        .Single(e => e.ToyId == id);
+                        .Toys
+                        .Single(e => e.ToyId == id && e.OwnerId == _userId);
+                        //.Single(e => e.ToyId == id);
                 return
                     new ToyDetail
                     {
@@ -78,8 +87,9 @@ namespace Blinyl.Services
             {
                 var entity =
                     ctx
-                        .Toy
-                        .Single(e => e.ToyId == model.ToyId);
+                        .Toys
+                        .Single(e => e.ToyId == model.ToyId && e.OwnerId == _userId);
+                        //.Single(e => e.ToyId == model.ToyId);
 
                 entity.Name = model.Name;
                 entity.Brand = model.Brand;
@@ -98,10 +108,11 @@ namespace Blinyl.Services
             {
                 var entity =
                     ctx
-                        .Toy
-                        .Single(e => e.ToyId == toyId);
+                        .Toys
+                        .Single(e => e.ToyId == toyId && e.OwnerId == _userId);
+                        //.Single(e => e.ToyId == toyId);
 
-                ctx.Toy.Remove(entity);
+                ctx.Toys.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
 

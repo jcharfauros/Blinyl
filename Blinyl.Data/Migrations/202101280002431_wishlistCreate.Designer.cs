@@ -7,13 +7,13 @@ namespace Blinyl.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class wishlistDataTable : IMigrationMetadata
+    public sealed partial class wishlistCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(wishlistDataTable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(wishlistCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202101232347250_wishlistDataTable"; }
+            get { return "202101280002431_wishlistCreate"; }
         }
         
         string IMigrationMetadata.Source

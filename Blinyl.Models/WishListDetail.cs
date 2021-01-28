@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,17 +10,14 @@ using System.Web.Mvc;
 
 namespace Blinyl.Models
 {
-    public class WishListItem
-    {
+    public class WishListDetail
+    {        
         public int WishId { get; set; }
-        public Guid OwnerId { get; set; }
-        [Required]
-        [MaxLength(45), MinLength(5)]
-        [Display(Name = "Wish List Name")]
+        //[ForeignKey("UserId")]
+        //public ApplicationUser User { get; set; }
+        //public string UserId { get; set; }
         public string WishListTitle { get; set; }
-        [Display(Name = "Created on")]
-        public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified on")]
+        public DateTimeOffset CreateUtc { get; set; }
         public DateTimeOffset ModifiedUtc { get; set; }
         public virtual IEnumerable<SelectListItem> Toys { get; set; }
     }
