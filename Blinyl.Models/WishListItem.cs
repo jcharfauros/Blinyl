@@ -17,9 +17,9 @@ namespace Blinyl.Models
         [MaxLength(45), MinLength(5)]
         [Display(Name = "Wish List Name")]
         public string WishListTitle { get; set; }
-        [Display(Name = "Created on")]
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name = "Modified on")]
+        [Display(Name = "Modified")]
         public DateTimeOffset ModifiedUtc { get; set; }
         public virtual IEnumerable<SelectListItem> Toys { get; set; }
     }

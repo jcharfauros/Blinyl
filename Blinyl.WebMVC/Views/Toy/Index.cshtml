@@ -13,12 +13,13 @@
         border-radius: 10px;
         overflow: hidden;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        background-color: #717077;
     }
 
     .content-table thead tr {
-        background-color: #6A7CFF;
+        background-color:#b3f3ec;        
         color: lightblue;
-        text-align: left;
+        text-align: center;
         font-weight: bold;
     }
 
@@ -32,7 +33,8 @@
     }
 
     .content-table tbody tr:nth-of-type(even) {
-        background-color: #ed88ff;
+        background-color: #e1c3f9;
+        color: #717077;
     }
 
      .content-table tbody tr:last-of-type {
@@ -60,7 +62,7 @@
 
 <table class="content-table center" style="margin-left:auto;margin-right:auto;">
     <thead>
-        <tr style="font-size: 2em; font-family:'Varela Round', sans-serif; color: black;">
+        <tr style="font-size: 2em; font-family:'Varela Round', sans-serif; color: #6a7cff; text-shadow: 2px 2px gray">
             <th>
                 @Html.DisplayNameFor(model => model.ToyId)
             </th>
@@ -70,7 +72,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Brand)
             </th>
-            <th></th>
+            <th>
+                <img src="~/Content/Images1/Blinyl_smstar.png" />
+            </th>
         </tr>
     </thead>
     <tbody>

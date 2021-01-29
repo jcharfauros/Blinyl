@@ -13,9 +13,9 @@ namespace Blinyl.Models
         public int CollectorsToysId { get; set; }
         [Display(Name ="Collection name")]
         public string Title { get; set; }
-        [Display(Name = "Collection Created on")]
+        [Display(Name = "Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Display(Name ="Collection Modified on")]
+        [Display(Name ="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
         public virtual IEnumerable<SelectListItem> Toys { get; set; }
         //[Display(Name=("User"))] 
