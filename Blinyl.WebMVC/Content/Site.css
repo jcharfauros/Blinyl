@@ -72,11 +72,14 @@ a {
 }
 /*change navbar link color*/
 .navbar-inverse .navbar-nav > li > a {
-    color: azure;
+    color: white;
+    font-size: 15px;
 }
 /*change navbar BLINYL color*/
 .navbar-inverse .navbar-brand {
-    color: #686AD7;
+    font-size: 40px;
+    font-family: 'Fredoka One', cursive;
+    color: #6A7CFF;
 }
 
 /*Learn more btn*/
@@ -179,5 +182,11 @@ h6,
 
 /*change the color of the index*/
 .table > tbody > tr > td {
-    color: deeppink;
+    color: #6A7CFF;
+    font-size: large; 
+    border: none;
+}
+
+a:visited {
+    color:aquamarine;
 }

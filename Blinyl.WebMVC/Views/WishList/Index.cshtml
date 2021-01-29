@@ -3,14 +3,16 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="text-center">
+    <h2>Your BLINYL Wishlist(s)</h2>
+</div>
 
-<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
+    <tr style="font-size: 2em; font-family:'Varela Round', sans-serif; color: #DAF7A6;">
         <th>
             @Html.DisplayNameFor(model => model.WishId)
         </th>
