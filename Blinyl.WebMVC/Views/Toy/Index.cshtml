@@ -3,13 +3,49 @@
 @{
     ViewBag.Title = "Index";
 }
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 1.8em;
+        min-width: 800px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .content-table thead tr {
+        background-color: #6A7CFF;
+        color: lightblue;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+    }
+
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #ed88ff;
+    }
+
+     .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #6A7CFF;
+     }
+
+
+
+</style>
 <div class="text-center">
     <h2>Index of BLINYLs</h2>
 </div>
 <p>This is the current list of toys in the BLINYL database. You may add to this database if something is missing.</p>
-<p>
-    @Html.ActionLink("Add a Blind box or Toy", "Create")
-</p>
 
 @if (TempData.ContainsKey("SaveResult"))
 {
@@ -22,38 +58,43 @@
     </div>
 }
 
-<table class="table">
-    <tr style="font-size: 2em; font-family:'Varela Round', sans-serif; color: #DAF7A6;">
-        <th>
-            @Html.DisplayNameFor(model => model.ToyId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ToyId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ToyId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ToyId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ToyId })
-            </td>
+<table class="content-table center" style="margin-left:auto;margin-right:auto;">
+    <thead>
+        <tr style="font-size: 2em; font-family:'Varela Round', sans-serif; color: black;">
+            <th>
+                @Html.DisplayNameFor(model => model.ToyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th></th>
         </tr>
-    }
-
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ToyId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ToyId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ToyId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+<p style="text-align:center;">
+    @Html.ActionLink("Add a Blind box or Toy", "Create")
+</p>
