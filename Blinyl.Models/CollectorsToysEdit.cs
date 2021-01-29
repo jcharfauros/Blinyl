@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Blinyl.Models
 {
-    class CollectorsToysEdit
+    public class CollectorsToysEdit
     {
         public int CollectorsToysId { get; set; }
         public string Title { get; set; }

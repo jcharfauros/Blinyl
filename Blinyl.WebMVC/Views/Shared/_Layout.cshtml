@@ -28,10 +28,12 @@
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <li>@Html.ActionLink("Blind Boxes", "Index", "Toy")</li>
-                            <li>@Html.ActionLink("Image upload", "Index", "FileUpload")</li>
+                            <li>@Html.ActionLink("Blind Boxes", "Index", "Toy")</li>                            
+                            <li>@Html.ActionLink("Wishlists", "Index", "WishList")</li>
+                            <li>@Html.ActionLink("Collector lists", "Index", "CollectorsToys")</li>
                         }
                     </ul>
+                    <!--<a class="navbar-brand" href="~/Views/Home/Index.cshtml"><img src="~/Content/Images1/Blinyl_Fprpl.png" /></a>-->
                     @Html.Partial("_LoginPartial")
                 </div>
             </div>
@@ -40,7 +42,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year - BLINYL Collection Application</p>
+                <p style="font-size:small; color:deeppink; text-align:center;">&copy; @DateTime.Now.Year - BLINYL Collection Application</p>
             </footer>
         </div>        
 

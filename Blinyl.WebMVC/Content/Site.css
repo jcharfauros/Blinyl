@@ -1,7 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-image: url("../Content/Images1/Blinyl_Tile.jpg.jpeg");
+    background-image: url("../Content/Images1/Blinyl_bg1.png");
     background-repeat: repeat;
     background-position: center;
     background-size: cover;
@@ -14,7 +14,7 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-    background-color: black;    
+    background-color: white;    
     border-radius: 0px 0px 25px 25px;
 }
 
@@ -37,6 +37,11 @@ img {
     max-width: 40%;
     height: auto;
 }
+
+.img-blinyl-logo {
+    max-width: 60%;
+    
+}
 /* not currently using*/
 .add-img {
     width: 25%;
@@ -55,7 +60,7 @@ address {
     font-family: 'Montserrat Alternates', sans-serif;
     font-style: normal;
     font-size: 20px;
-    color: ghostwhite;
+    color: #0076A3;
     line-height: 1.42857143;
 }
 
@@ -72,11 +77,14 @@ a {
 }
 /*change navbar link color*/
 .navbar-inverse .navbar-nav > li > a {
-    color: azure;
+    color: white;
+    font-size: 15px;
 }
 /*change navbar BLINYL color*/
 .navbar-inverse .navbar-brand {
-    color: #686AD7;
+    font-size: 40px;
+    font-family: 'Fredoka One', cursive;
+    color: #6A7CFF;
 }
 
 /*Learn more btn*/
@@ -108,12 +116,13 @@ a:focus {
 
 .jumbotron h1 {
     text-align: center;
-    font-size: 70px;
+    font-size: 80px;
+    text-shadow: 3px 3px #ed88ff;
     color: #000;
 }
 
 p {
-    color: antiquewhite;
+    color: #0076A3;
     font-family: 'Varela Round', sans-serif;
     font-size: 1.5em;
 }
@@ -140,13 +149,14 @@ h1 {
 }
 
 h2 {
-    color: white;
     font-family: 'Press Start 2P', cursive;
+    color: black;
+    text-shadow: 3px 3px #ed88ff;
 }
 
 h3 {
     font-family: 'Fredoka One', cursive;
-    color: white;
+    color: pink;
 }
 
 h4 {
@@ -159,8 +169,10 @@ h5 {
     font-family: 'Fredoka One', cursive;
     font-size: 70px;
     text-align: center;
-    color: white;
+    text-shadow: 2px 2px #ed88ff;
+    color: black;
 }
+
 
 /*
 body.
@@ -175,3 +187,51 @@ h6,
 .h4,
 .h5,
 .h6*/
+
+/*change the color of the index
+.table > tbody > tr > td {    
+    color: #5b5a64;
+    font-size: large;
+    border: none;
+}*/
+
+a:visited {
+    color: #6A7CFF;
+}
+
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    min-width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #717077;
+}
+
+.content-table thead tr {
+    background-color: #b3f3ec;
+    color: lightblue;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #e1c3f9;
+        color: #717077;
+    }
+
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #6A7CFF;
+    }

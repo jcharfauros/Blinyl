@@ -19,8 +19,7 @@ namespace Blinyl.WebMVC.Controllers
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ToysService(userId);
-            //var service = new ToysService();
+            var service = new ToysService(userId);            
             var model = service.GetToys();
 
             return View(model);
@@ -134,7 +133,7 @@ namespace Blinyl.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ToysService(userId);
-            //var service = new ToysService();
+            
             return service;
         }       
     }
