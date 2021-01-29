@@ -162,6 +162,7 @@ h5 {
     color: white;
 }
 
+
 /*
 body.
 h2,
@@ -175,3 +176,8 @@ h6,
 .h4,
 .h5,
 .h6*/
+
+/*change the color of the index*/
+.table > tbody > tr > td {
+    color: deeppink;
+}

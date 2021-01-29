@@ -24,6 +24,7 @@ namespace Blinyl.Services
                     OwnerId = _userId,
                     WishListTitle = model.WishListTitle,
                     Toys = model.Toys
+                    //CreatedUtc = DateTimeOffset.Now
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -55,11 +56,12 @@ namespace Blinyl.Services
                 var wishlists =
                     ctx
                         .Wishlist
+                        .Where(w => w.OwnerId == _userId)
                         .Select(w => new WishListItem()
                         {
                             WishId = w.WishId,
-                            WishListTitle = w.WishListTitle
-
+                            WishListTitle = w.WishListTitle,
+                            ModifiedUtc = w.ModifiedUtc
                         });
 
                 return wishlists.ToList();
@@ -78,7 +80,8 @@ namespace Blinyl.Services
                     new WishListDetail
                     {
                         WishId = entity.WishId,
-                        WishListTitle = entity.WishListTitle
+                        WishListTitle = entity.WishListTitle,
+                        ModifiedUtc = entity.ModifiedUtc
                     };
             }
         }
@@ -93,6 +96,8 @@ namespace Blinyl.Services
                         .Single(w => w.WishId == model.WishId && w.OwnerId == _userId);
 
                 entity.WishListTitle = model.WishListTitle;
+                entity.CreateUtc = DateTimeOffset.Now;
+                entity.ModifiedUtc = DateTimeOffset.Now;
 
                 return ctx.SaveChanges() == 1;
             }

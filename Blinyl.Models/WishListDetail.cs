@@ -13,12 +13,15 @@ namespace Blinyl.Models
     public class WishListDetail
     {        
         public int WishId { get; set; }
+        [Display(Name = "Wish list name")]
+        public string WishListTitle { get; set; }
+        [Display(Name = "Wish list Created on")]
+        public DateTimeOffset CreateUtc { get; set; }
+        [Display(Name = "Wish list Modified on")]
+        public DateTimeOffset ModifiedUtc { get; set; }
+        public virtual IEnumerable<SelectListItem> Toys { get; set; }
         //[ForeignKey("UserId")]
         //public ApplicationUser User { get; set; }
         //public string UserId { get; set; }
-        public string WishListTitle { get; set; }
-        public DateTimeOffset CreateUtc { get; set; }
-        public DateTimeOffset ModifiedUtc { get; set; }
-        public virtual IEnumerable<SelectListItem> Toys { get; set; }
     }
 }
