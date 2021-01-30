@@ -44,8 +44,8 @@ img {
 }
 /* not currently using*/
 .add-img {
-    width: 25%;
-    margin: auto;
+    max-width: 40%;
+    height: auto;
     /*
     padding: 10px;*/
 }
@@ -103,6 +103,7 @@ a {
 /*links e.g., Create New*/
 a:hover,
 a:focus {
+    /*color: #daf7a6;*/
     color: #BCFF6A;    
 }
 
@@ -150,7 +151,7 @@ h1 {
 
 h2 {
     font-family: 'Press Start 2P', cursive;
-    color: black;
+    color: #5b5a63;
     text-shadow: 3px 3px #ed88ff;
 }
 
@@ -160,8 +161,9 @@ h3 {
 }
 
 h4 {
-    font-family: 'Sacramento', cursive;
-    font-size: 8em;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 2.5em;
+    text-shadow: 2px 2px #DAF7A6;
     color: #686AD7;
 }
 

@@ -10,6 +10,7 @@ namespace Blinyl.Models
 {
     public class CollectorsToysDetail
     {
+        [Display(Name = "Collection #")]
         public int CollectorsToysId { get; set; }
         [Display(Name ="Collection name")]
         public string Title { get; set; }

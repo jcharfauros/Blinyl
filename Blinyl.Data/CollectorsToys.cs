@@ -13,18 +13,13 @@ namespace Blinyl.Data
     {
         [Key] 
         public int CollectorsToysId { get; set; }
-        public Guid OwnerId { get; set; }
-        //[ForeignKey("UserId")]
-        //public ApplicationUser User { get; set; }
-        //public string UserId { get; set; }
-        //[ForeignKey(nameof(ToyId))]         
-        //public virtual int? ToyId { get; }                
+        public Guid OwnerId { get; set; }        
         [Required]
         public string Title { get; set; }
         [Display(Name ="Created")]
         public DateTimeOffset CreateUtc { get; set; }
         [Display(Name ="Modified")]
-        public DateTimeOffset? ModifiedUtc { get; set; } //what's the difference between DateTime vs DateTimeOffSet
+        public DateTimeOffset? ModifiedUtc { get; set; } 
         public virtual IEnumerable<SelectListItem> Toys { get; set; }
     }
 }

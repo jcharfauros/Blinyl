@@ -9,7 +9,7 @@ namespace Blinyl.Models
 {
     public class CollectorsToysList
     {
-        [Display(Name ="Collection ID")]
+        [Display(Name ="Collection #")]
         public int CollectorsToysId { get; set; }
         [Required]
         [MaxLength(45, ErrorMessage ="There are too many characters in this field"), 

@@ -1,88 +1,93 @@
 ﻿@model Blinyl.Models.ToyDetail
 
-@{
-    ViewBag.Title = "Delete";
-}
+<div class="jumbotron" style="background-color:black;">
+    <div class="text-center">
+        @{
+            ViewBag.Title = "Delete";
+        }
 
-<h2>Delete</h2>
+        <h2 style="color:white;">.delete.blinyl.</h2>
+    </div>
+        <img src="~/Content/Images1/Blinyl_cl.png" style="float: right; position:absolute; margin: 0 0 0 45em;" />
+    <h3 style="color:#DAF7A6;">Are you sure you want to delete this?</h3>
+    <div>
+        @*<h4>Blinyl Detail</h4>*@
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ToyId)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ToyDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ToyId)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ToyId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ToyId)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Brand)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Brand)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Series)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Series)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Series)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Series)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Artist)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Artist)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Artist)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Artist)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ReleaseYear)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseYear)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ReleaseYear)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseYear)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RetailPrice)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RetailPrice)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.RetailPrice)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RetailPrice)
-        </dd>
+        </dl>
 
-    </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
 </div>
