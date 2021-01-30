@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Blinyl.Models.WishListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 1em;
+        min-width: 800px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        background-color: #717077;
+    }
+
+        .content-table thead tr {
+            background-color: #b3f3ec;
+            color: lightblue;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+            .content-table tbody tr:nth-of-type(even) {
+                background-color: #e1c3f9;
+                color: #717077;
+            }
+
+            .content-table tbody tr:last-of-type {
+                border-bottom: 2px solid #6A7CFF;
+            }
+</style>
+
+
+<div class="text-center">
+    <h2>Your BLINYL Wishlist(s)</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+</div>
+
+<table table class="content-table center" style="margin-left:auto;margin-right:auto;">
+    <thead>
+        <tr style="font-size: 2em; font-family:'Varela Round', sans-serif; color: #6a7cff; text-shadow: 2px 2px #DAF7A6">
+            <th>
+                @Html.DisplayNameFor(model => model.WishId)
+            </th>
+            <!--<th>
+                Html.DisplayNameFor(model => model.OwnerId)
+            </th> -->
+            <th>
+                @Html.DisplayNameFor(model => model.WishListTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </th>
+            <th> <img src="~/Content/Images1/Blinyl_smcl.png" /></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WishId)
+                </td>
+                <!--<td>
+                    Html.DisplayFor(modelItem => item.OwnerId)
+                </td> -->
+                <td>
+                    @Html.DisplayFor(modelItem => item.WishListTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.WishId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.WishId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.WishId })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

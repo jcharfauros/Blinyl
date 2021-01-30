@@ -4,42 +4,47 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<div class="text-center">
+    <h2>BLINYL Collections</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CollectorsToysId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ListTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CollectorsToysId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ListTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
+<table table class="content-table center" style="margin-left:auto;margin-right:auto;">
+    <thead>
+        <tr style="font-size: 2em; font-family:'Varela Round', sans-serif; color: #6a7cff; text-shadow: 2px 2px #DAF7A6">
+            <th>
+                @Html.DisplayNameFor(model => model.CollectorsToysId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ListTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th> <img src="~/Content/Images1/Blinyl_smhrt.png" /></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CollectorsToysId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ListTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CollectorsToysId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CollectorsToysId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CollectorsToysId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

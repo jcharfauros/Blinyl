@@ -1,0 +1,22 @@
+﻿using Blinyl.Data;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Blinyl.Models
+{
+    public class WishListEdit
+    {
+        public int WishId { get; set; }
+        [ForeignKey(nameof(ToyId))]
+        public virtual int? ToyId { get; }        
+        [ForeignKey("UserId")]
+        public ApplicationUser User { get; set; }
+        public string UserId { get; set; }
+        public string WishListTitle { get; set; }
+
+    }
+}

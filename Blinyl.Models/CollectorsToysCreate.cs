@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Blinyl.Models
 {
@@ -11,6 +12,8 @@ namespace Blinyl.Models
     {
         [Required][MaxLength(50), MinLength(5)]
         [Display(Name ="Collection Title")]
-        public string Title { get; set; }        
+        public string Title { get; set; }
+        public IEnumerable<SelectListItem> Toys { get; set; }
+        public int[] SelectedToyIds { get; set; }
     }
 }

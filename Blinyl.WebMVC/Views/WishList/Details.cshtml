@@ -1,0 +1,55 @@
+﻿@model Blinyl.Models.WishListDetail
+
+<div class="jumbotron" style="background-color:black;">
+    <div class="text-center">
+        @{
+            ViewBag.Title = "Details";
+        }
+
+        <h2 style="color:white;">.about this wishlist.</h2>
+        <img src="~/Content/Images1/Blinyl_hrt.png"
+             style="float: right; position:absolute; margin: 0 0 0 10em;" />
+    </div>
+    <div>
+        @*<h4>WishListDetail</h4>*@
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.WishId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WishId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.WishListTitle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WishListTitle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreateUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreateUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUtc)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.WishId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

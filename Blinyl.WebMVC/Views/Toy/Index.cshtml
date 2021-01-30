@@ -4,42 +4,101 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 1.8em;
+        min-width: 800px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        background-color: #717077;
+    }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ToyId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand)
-        </th>        
-        <th></th>
-    </tr>
+    .content-table thead tr {
+        background-color:#b3f3ec;        
+        color: lightblue;
+        text-align: center;
+        font-weight: bold;
+    }
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ToyId)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Brand)
-    </td>    
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-    </td>
-</tr>
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+    }
+
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #e1c3f9;
+        color: #717077;
+    }
+
+     .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #6A7CFF;
+     }
+
+
+
+</style>
+<div class="text-center">
+    <h2>Index of BLINYLs</h2>
+</div>
+<p>This is the current list of toys in the BLINYL database. You may add to this database if something is missing.</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
 }
 
+<table class="content-table center" style="margin-left:auto;margin-right:auto;">
+    <thead>
+        <tr style="font-size: 2em; font-family:'Varela Round', sans-serif; color: #6a7cff; text-shadow: 2px 2px gray">
+            <th>
+                @Html.DisplayNameFor(model => model.ToyId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>            
+            <th>
+                <img src="~/Content/Images1/Blinyl_smstar.png" />
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ToyId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ToyId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ToyId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+<p style="text-align:center;">
+    @Html.ActionLink("Add a Blind box or Toy", "Create")
+</p>

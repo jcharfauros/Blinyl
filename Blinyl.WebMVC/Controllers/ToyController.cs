@@ -1,6 +1,7 @@
 ﻿using Blinyl.Data;
 using Blinyl.Models;
 using Blinyl.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,18 +15,14 @@ namespace Blinyl.WebMVC.Controllers
     [Authorize]
     public class ToyController : Controller
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: Toy
         public ActionResult Index()
         {
-            //var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ToysService();
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ToysService(userId);            
             var model = service.GetToys();
 
             return View(model);
-
-            //var model = new ToyList[0];
-            //return View(model);
         }
 
         // GET: Toy        
@@ -34,86 +31,110 @@ namespace Blinyl.WebMVC.Controllers
             return View();
         }
         // POST: Toy
-        [HttpPost]        
-        public ActionResult Create(Toy toy)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Toy.Add(toy);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(toy);
-        }
-        // delete
-        // GET: Toy/Delete/{id}
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Toy toy = _db.Toy.Find(id);
-            if (toy == null)
-            {
-                return HttpNotFound();
-            }
-            return View(toy);
-        }
-        // POST: Toy/Delete/{id}
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult Create(ToyCreate model)
         {
-            Toy toy = _db.Toy.Find(id);
-            _db.Toy.Remove(toy);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (!ModelState.IsValid) return View(model);
+
+            var service = CreatedToysService();
+
+            if (service.CreateToy(model))
+            {
+                TempData["SaveResult"] = "Your BLINYL was added.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "BLINYL could not be added.");
+
+            return View(model);                                        
+        }
+        
+        // details
+        // GET: Toy/Detail/{id}
+        public ActionResult Details(int id)
+        {
+            var svc = CreatedToysService();
+            var model = svc.GetToyById(id);
+
+            return View(model);
         }
         
         // update
         // GET: Toy/Edit/{id}
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Toy toy = _db.Toy.Find(id);
-            if (toy == null)
-            {
-                return HttpNotFound();
-            }
-            return View(toy);
+            var service = CreatedToysService();
+            var detail = service.GetToyById(id);
+            var model =
+                new ToyEdit
+                {
+                    ToyId = detail.ToyId,
+                    Name = detail.Name,
+                    Brand = detail.Brand,
+                    Series = detail.Series,
+                    Artist = detail.Artist,
+                    Description = detail.Description,
+                    ReleaseYear = detail.ReleaseYear,
+                    RetailPrice = detail.RetailPrice
+                };
+            return View(model);
         }
+        
         // POST: Toy/Edit/{id}
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Toy toy)
-        {
-            if (ModelState.IsValid)
+        public ActionResult Edit(int id, ToyEdit model)
+        {      //!did adding this break anything 1/27/21 -julia
+            if (!ModelState.IsValid) return View(model);
+
+            if(model.ToyId != id)
             {
-                _db.Entry(toy).State = EntityState.Modified;
-                _db.SaveChanges();
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreatedToysService();
+
+            if (service.UpdateToy(model))
+            {
+                TempData["SaveResult"] = "This BLINYL was updated.";
                 return RedirectToAction("Index");
             }
-            return View(toy);
+
+            ModelState.AddModelError("", "This blindbox/toy could not be updated.");
+            return View();
+        }
+        // delete
+        // GET: Toy/Delete/{id}
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreatedToysService();
+            var model = svc.GetToyById(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteToy(int id)
+        {
+            var service = CreatedToysService();
+
+            service.DeleteToy(id);
+
+            TempData["SaveResult"] = "The selected Blinyl was deleted.";
+
+            return RedirectToAction("Index");
         }
 
-        // details
-        // GET: Toy/Detail/{id}
-        public ActionResult Details(int? id)
+        private ToysService CreatedToysService()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Toy toy = _db.Toy.Find(id);
-            if (toy == null)
-            {
-                return HttpNotFound();
-            }
-            return View(toy);
-        }
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ToysService(userId);
+            
+            return service;
+        }       
     }
 }

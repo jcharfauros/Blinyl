@@ -1,17 +1,21 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;    
+    padding-bottom: 20px;
+    background-image: url("../Content/Images1/Blinyl_bg1.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: floralwhite;
 }
 
-/* Julia note: trying to change the bg color*/
-.bg-color-pink {
-    background-color: pink
-}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: white;    
+    border-radius: 0px 0px 25px 25px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -27,3 +31,209 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*this is for all images*/
+img {
+    max-width: 40%;
+    height: auto;
+}
+
+.img-blinyl-logo {
+    max-width: 60%;
+    
+}
+/* not currently using*/
+.add-img {
+    max-width: 40%;
+    height: auto;
+    /*
+    padding: 10px;*/
+}
+
+.blinyl-flag {
+    max-width: 50%;
+    height: auto;
+}
+/* contact page*/
+address {
+    margin-bottom: 20px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    color: #0076A3;
+    line-height: 1.42857143;
+}
+
+a {
+    color: mediumpurple;
+}
+
+/*Bootstrap overrides*/
+/*change navbar color*/
+.navbar-inverse {
+    background-color: #ed88ff;
+    /*background-color: ;*/
+    border-color: #ed88ff;
+}
+/*change navbar link color*/
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+    font-size: 15px;
+}
+/*change navbar BLINYL color*/
+.navbar-inverse .navbar-brand {
+    font-size: 40px;
+    font-family: 'Fredoka One', cursive;
+    color: #6A7CFF;
+}
+
+/*Learn more btn*/
+.btn-primary {
+    color: #fff;
+    background-color: #686AD7;
+    border-color: #f76aff;
+}
+
+.btn-default {
+    color: #fff;
+    background-color: #686AD7;
+    border-color: #f76aff;
+}
+
+/*links e.g., Create New*/
+a:hover,
+a:focus {
+    /*color: #daf7a6;*/
+    color: #BCFF6A;    
+}
+
+.jumbotron {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: #ffe6f3;
+}
+
+.jumbotron h1 {
+    text-align: center;
+    font-size: 80px;
+    text-shadow: 3px 3px #ed88ff;
+    color: #000;
+}
+
+p {
+    color: #0076A3;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.5em;
+}
+/*register form text*/
+label {
+    color: floralwhite;
+}
+
+.center {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+
+/*font-family: 'Dawning of a New Day', cursive;
+font-family: 'Fredoka One', cursive;
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Sacramento', cursive;
+font-family: 'Varela Round', sans-serif;*/
+
+h1 {    
+    font-family: 'Fredoka One', cursive;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: #5b5a63;
+    text-shadow: 3px 3px #ed88ff;
+}
+
+h3 {
+    font-family: 'Fredoka One', cursive;
+    color: pink;
+}
+
+h4 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 2.5em;
+    text-shadow: 2px 2px #DAF7A6;
+    color: #686AD7;
+}
+
+h5 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 70px;
+    text-align: center;
+    text-shadow: 2px 2px #ed88ff;
+    color: black;
+}
+
+
+/*
+body.
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6*/
+
+/*change the color of the index
+.table > tbody > tr > td {    
+    color: #5b5a64;
+    font-size: large;
+    border: none;
+}*/
+
+a:visited {
+    color: #6A7CFF;
+}
+
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    min-width: 800px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    background-color: #717077;
+}
+
+.content-table thead tr {
+    background-color: #b3f3ec;
+    color: lightblue;
+    text-align: center;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #e1c3f9;
+        color: #717077;
+    }
+
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #6A7CFF;
+    }

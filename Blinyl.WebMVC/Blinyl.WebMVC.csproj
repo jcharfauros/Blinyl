@@ -172,6 +172,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ToyController.cs" />
+    <Compile Include="Controllers\FileUploadController.cs" />
+    <Compile Include="Controllers\WishListController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,6 +187,25 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images1\BlinylBoy.png" />
+    <Content Include="Content\Images1\BlinylBoy2.png" />
+    <Content Include="Content\Images1\BlinylBx.png" />
+    <Content Include="Content\Images1\BlinylLogoTrans.png" />
+    <Content Include="Content\Images1\Blinyl_bg1.png" />
+    <Content Include="Content\Images1\Blinyl_bg2.png" />
+    <Content Include="Content\Images1\Blinyl_cl.png" />
+    <Content Include="Content\Images1\Blinyl_Fbl.png" />
+    <Content Include="Content\Images1\Blinyl_Fpk.png" />
+    <Content Include="Content\Images1\Blinyl_Fprpl.png" />
+    <Content Include="Content\Images1\Blinyl_hrt.png" />
+    <Content Include="Content\Images1\Blinyl_smcl.png" />
+    <Content Include="Content\Images1\Blinyl_smhrt.png" />
+    <Content Include="Content\Images1\Blinyl_smstar.png" />
+    <Content Include="Content\Images1\Blinyl_star.png" />
+    <Content Include="Content\Images1\Blinyl_Tile.jpg.jpeg" />
+    <Content Include="Content\Images1\gr_uni.jpg" />
+    <Content Include="Content\Images1\p_uni.jpg" />
+    <Content Include="Content\Images1\Toki.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -240,9 +261,23 @@
     <Content Include="Views\Toy\Index.cshtml" />
     <Content Include="Views\CollectorsToys\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\DateTimeOffset.cshtml" />
+    <Content Include="Views\FileUpload\Index.cshtml" />
+    <Content Include="Views\Toy\Details.cshtml" />
+    <Content Include="Views\Toy\Edit.cshtml" />
+    <Content Include="Views\Toy\Delete.cshtml" />
+    <Content Include="Views\WishList\Create.cshtml" />
+    <Content Include="Views\WishList\Index.cshtml" />
+    <Content Include="Views\WishList\Details.cshtml" />
+    <Content Include="Views\WishList\Edit.cshtml" />
+    <Content Include="Views\WishList\Delete.cshtml" />
+    <Content Include="Views\CollectorsToys\Create.cshtml" />
+    <Content Include="Views\CollectorsToys\Details.cshtml" />
+    <Content Include="Views\CollectorsToys\Edit.cshtml" />
+    <Content Include="Views\CollectorsToys\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ToyImageUpload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

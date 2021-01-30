@@ -1,29 +1,40 @@
-﻿@{
+﻿<!--{ add at symbol
     ViewBag.Title = "Home Page";
-}
+}-->
 
 <div class="jumbotron">
-    <h1>Welcome to BLINYL!</h1>
-    <p class="lead">Blinyl is where blind box vinyl toy collectors can keep lists of their collections. </p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Hello! Welcome to: <a href="~/Home/About"><img src="~/Content/Images1/BlinylLogoTrans.png" class="img-blinyl-logo" /></a></h1>
+    <!--<p class="lead">Home for Blind Box Vinyl Art toy collectors! </p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>-->
 </div>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Create a COLLECTION or WISH LIST</h2>
-        <p>
-            Follow this link to add a new collection list or wish list
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col-md-4" style="text-align:center;">
+        <a href="~/WishList/Create">
+            <h2>.create.</h2>
+            <img src="~/Content/Images1/Blinyl_star.png" />
+            <p>
+                <!--Register as a Blinyl user and add your collect list. You may also create wish lists for vinyl art toys you don't have in your collection. -->
+            </p>
+        </a>
+        <!--this needs to be like to ceating wishlist/collection-->
+        <!--<p><a class="btn btn-default" href="~/Toy/Create">Learn more &raquo;</a></p>-->
     </div>
-    <div class="col-md-4">
-        <h2>Blind Boxes</h2>
-        <p>List of blind box toys in this database. You can add blind boxes that are not in the database.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-4" style="text-align:center;">
+        <a href="~/Toy">
+            <h2>.blinyls.</h2>
+            <img src="~/Content/Images1/Blinyl_hrt.png" />
+        </a>
+        <!--<p>See the list of blind boxes currently in our database. You also have the ablility to add blind boxes/vinyl art toys that are not in the database.</p>
+        <p><a class="btn btn-default" href="~/Toy">Learn more &raquo;</a></p>-->
     </div>
-    <div class="col-md-4">
-        <h2>Our story</h2>
-        <p>How BLINYL got started</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-4" style="text-align:center;">
+        <a href="~/Home/About">
+            <h2>.about us.</h2>
+            <img src="~/Content/Images1/Blinyl_cl.png" />
+        </a>
+        <!--<p>What is BLINYL? Meet the creator and read how BLINYL got started.</p>
+        <br /><br /><br />
+        <p><a class="btn btn-default" href="~/Home/About">Learn more &raquo;</a></p>-->
     </div>
 </div>

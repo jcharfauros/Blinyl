@@ -10,11 +10,17 @@ namespace Blinyl.Services
 {
     public class ToysService
     {
+        private readonly Guid _userId;
+        public ToysService(Guid userId)
+        {
+            _userId = userId;
+        }
         public bool CreateToy(ToyCreate model)
         {
             var entity =
                 new Toy()
                 {
+                    OwnerId = _userId,
                     Name = model.Name,
                     Brand = model.Brand,
                     Series = model.Series,
@@ -26,7 +32,7 @@ namespace Blinyl.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Toy.Add(entity);
+                ctx.Toys.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -37,7 +43,8 @@ namespace Blinyl.Services
             {
                 var query =
                     ctx
-                        .Toy
+                        .Toys
+                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e => 
                                 new ToyList
@@ -45,9 +52,70 @@ namespace Blinyl.Services
                                     ToyId = e.ToyId,
                                     Name = e.Name,
                                     Brand = e.Brand,
+                                    
                                 }
                          );
                 return query.ToArray();
+            }
+        }
+
+        public ToyDetail GetToyById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Toys
+                        .Single(e => e.ToyId == id && e.OwnerId == _userId);
+                        //.Single(e => e.ToyId == id);
+                return
+                    new ToyDetail
+                    {
+                        ToyId = entity.ToyId,
+                        Name = entity.Name,
+                        Brand = entity.Brand,
+                        Series = entity.Series,
+                        Description = entity.Description,
+                        ReleaseYear = entity.ReleaseYear,
+                        RetailPrice = entity.RetailPrice
+                    };
+            }
+        }
+        public bool UpdateToy(ToyEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Toys
+                        .Single(e => e.ToyId == model.ToyId && e.OwnerId == _userId);
+                        //.Single(e => e.ToyId == model.ToyId);
+
+                entity.Name = model.Name;
+                entity.Brand = model.Brand;
+                entity.Series = model.Series;
+                entity.Artist = model.Artist;
+                entity.Description = model.Description;
+                entity.ReleaseYear = model.ReleaseYear;
+                entity.RetailPrice = model.RetailPrice;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteToy(int toyId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Toys
+                        .Single(e => e.ToyId == toyId && e.OwnerId == _userId);
+                        //.Single(e => e.ToyId == toyId);
+
+                ctx.Toys.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+
             }
         }
     }
