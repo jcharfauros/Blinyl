@@ -1,74 +1,81 @@
 ﻿@model Blinyl.Models.ToyDetail
 
-@{
-    ViewBag.Title = "Details";
-}
+<div class="jumbotron" style="background-color:black;">
+    <div class="text-center">
 
-<h2>Details</h2>
 
-<div>
-    <h4>ToyDetail</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ToyId)
-        </dt>
+        @{
+            ViewBag.Title = "Details";
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.ToyId)
-        </dd>
+        <h2 style="color:white;">.about this blinyl.</h2>
+        <img src="~/Content/Images1/Blinyl_hrt.png"
+             style="float: right; position:absolute; margin: 0 0 0 10em;" />
+    </div>
+    <div>
+        @*<h4>Blinyl detail</h4>*@
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ToyId)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ToyId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Brand)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Brand)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Series)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Series)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Series)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Series)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ReleaseYear)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ReleaseYear)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ReleaseYear)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RetailPrice)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ReleaseYear)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.RetailPrice)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RetailPrice)
+            </dt>
 
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.RetailPrice)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ToyId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ToyId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

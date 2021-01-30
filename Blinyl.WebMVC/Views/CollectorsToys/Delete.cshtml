@@ -3,15 +3,15 @@
 <div class="jumbotron" style="background-color:black;">
     <div class="text-center">
         @{
-            ViewBag.Title = "Details";
+            ViewBag.Title = "Delete";
         }
 
-        <h2 style="color:white;">.about this collection.</h2>
-        <img src="~/Content/Images1/Blinyl_hrt.png"
-             style="float: right; position:absolute; margin: 0 0 0 10em;" />
+        <h2 style="color:white;">.delete.collection.</h2>
     </div>
+    <img src="~/Content/Images1/Blinyl_cl.png" style="float: right; position:absolute; margin: 0 0 0 45em;" />
+    <h3 style="color:#DAF7A6;">Are you sure you want to delete this?</h3>
     <div>
-        <h4>@*CollectorsToysDetail*@</h4>
+        @*<h4>CollectorsToysDetail</h4>*@
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -47,9 +47,15 @@
             </dd>
 
         </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
     </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.CollectorsToysId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
 </div>

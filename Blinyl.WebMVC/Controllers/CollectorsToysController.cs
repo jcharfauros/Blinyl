@@ -72,7 +72,7 @@ namespace Blinyl.WebMVC.Controllers
             var service = CreateCollectorService();
             var detail = service.GetCListById(id);
             var model =
-                new CollectorsToys
+                new CollectorsToysEdit
                 {
                     Title = detail.Title,
                 };
