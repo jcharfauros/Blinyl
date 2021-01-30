@@ -1,13 +1,14 @@
 ﻿@model Blinyl.Models.ToyCreate
 
 <div class="jumbotron" style="background-color:black;">
-        <div class="text-center">
+    <div class="text-center">
         @{
             ViewBag.Title = "Create";
         }
         <h2 style="color:white;">.add a blinyl.</h2>
     </div>
     <br />
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()

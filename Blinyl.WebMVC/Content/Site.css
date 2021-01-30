@@ -10,6 +10,8 @@
 }
 
 
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -237,3 +239,10 @@ a:visited {
     .content-table tbody tr:last-of-type {
         border-bottom: 2px solid #6A7CFF;
     }
+
+.form-horizontal .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+    /*color:black;*/
+}

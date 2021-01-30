@@ -5,7 +5,14 @@
 
 <h2>@ViewBag.Title.</h2>
 
-
+<style>
+    .form-horizontal .control-label {
+        padding-top: 7px;
+        margin-bottom: 0;
+        text-align: right;
+        color:black;
+    }
+</style>
 
 <img src="~/Content/Images1/BlinylLogoTrans.png" style="float: right; position:absolute; margin: 0 0 0 45em; max-width:25%; height:auto;" />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))

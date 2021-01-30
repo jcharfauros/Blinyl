@@ -77,21 +77,9 @@
   <ItemGroup>
     <Compile Include="CollectorsToys.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202101270410423_initCreate.cs" />
-    <Compile Include="Migrations\202101270410423_initCreate.Designer.cs">
-      <DependentUpon>202101270410423_initCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101270731591_secMigration.cs" />
-    <Compile Include="Migrations\202101270731591_secMigration.Designer.cs">
-      <DependentUpon>202101270731591_secMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101280002431_wishlistCreate.cs" />
-    <Compile Include="Migrations\202101280002431_wishlistCreate.Designer.cs">
-      <DependentUpon>202101280002431_wishlistCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101290143336_initCollect.cs" />
-    <Compile Include="Migrations\202101290143336_initCollect.Designer.cs">
-      <DependentUpon>202101290143336_initCollect.cs</DependentUpon>
+    <Compile Include="Migrations\202101300600291_initCreate.cs" />
+    <Compile Include="Migrations\202101300600291_initCreate.Designer.cs">
+      <DependentUpon>202101300600291_initCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,17 +92,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101270410423_initCreate.resx">
-      <DependentUpon>202101270410423_initCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101270731591_secMigration.resx">
-      <DependentUpon>202101270731591_secMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101280002431_wishlistCreate.resx">
-      <DependentUpon>202101280002431_wishlistCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101290143336_initCollect.resx">
-      <DependentUpon>202101290143336_initCollect.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101300600291_initCreate.resx">
+      <DependentUpon>202101300600291_initCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
